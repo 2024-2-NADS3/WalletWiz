@@ -1,0 +1,3 @@
+Conforme solicitado no cronograma inicial, o backend das telas funcionais estão presentes na branch master (organizaremos nas pastas posteriormente);
+Por decorrência do tempo e incerteza da prolongação do prazo as telas possuem alguns bugs, e botões que não funcionam (como "logout", "você possui uma conta? então faça o seu login") porém usando as setas de navegação do celular se torna contornável;
+Sobre o fluxo ainda não inserimos o redirecionamento após a criação de conta, e algumas exceptions também não estão funcionando corretamente, pontos que trataremos futuramente.
