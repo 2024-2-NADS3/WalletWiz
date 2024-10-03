@@ -10,6 +10,8 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.navigation.NavigationView;
 import android.util.Log;
 import android.view.View;
@@ -65,7 +67,19 @@ public class session extends AppCompatActivity {
 
             return false;
         });
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            drawerLayout.closeDrawer(GravityCompat.START);
 
+            if (id == R.id.nav_extract) {
+                Intent intent = new Intent(session.this, extrato.class);
+                intent.putExtra("transacoes", (ArrayList<transacao>) transacoes);
+                startActivity(intent);
+                return true;
+            }
+
+            return false;
+        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
