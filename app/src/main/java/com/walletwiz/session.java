@@ -172,7 +172,7 @@ public class session extends AppCompatActivity {
         TextView textDesValue = findViewById(R.id.textDesValue);
 
         textBalanco.setText(String.format("Balanço: %.2f", receitaTotal - despesaTotal));
-        textSalValue.setText(String.format("Receita Total: %.2f", receitaTotal));
-        textDesValue.setText(String.format("Despesa Total: %.2f", despesaTotal));
+        textSalValue.setText(String.format("R$ %.2f", receitaTotal));
+        textDesValue.setText(String.format("R$ %.2f", despesaTotal));
     }
 }

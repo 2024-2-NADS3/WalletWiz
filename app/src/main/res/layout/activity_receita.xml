@@ -94,70 +94,6 @@
                 app:srcCompat="@drawable/baseline_attach_money_24"
                 app:tint="@color/goldww" />
 
-            <EditText
-                android:id="@+id/editTextObs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.185"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.262" />
-
-            <TextView
-                android:id="@+id/texttitleobs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome"
-                app:layout_constraintBottom_toTopOf="@+id/editTextObs"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.082"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <EditText
-                android:id="@+id/editTextReceita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
-                android:ems="10"
-                android:inputType="number"
-                app:layout_constraintBottom_toTopOf="@+id/editDateReceita"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.185"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextObs"
-                app:layout_constraintVertical_bias="0.032" />
-
-            <TextView
-                android:id="@+id/textvalor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Valor"
-                app:layout_constraintBottom_toTopOf="@+id/editTextReceita"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.082"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextObs"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <EditText
-                android:id="@+id/editDateReceita"
-                android:layout_width="245dp"
-                android:layout_height="52dp"
-                android:ems="10"
-                android:inputType="date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.204"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="0.546" />
-
             <Button
                 android:id="@+id/buttonReceita"
                 android:layout_width="wrap_content"
@@ -165,23 +101,9 @@
                 android:text="Salvar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editDateReceita"
-                app:layout_constraintVertical_bias="0.352" />
-
-            <TextView
-                android:id="@+id/textdata"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="344dp"
-                android:text="Data"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.088"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextReceita"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
+                app:layout_constraintVertical_bias="0.77" />
 
             <TextView
                 android:id="@+id/textTitleRec"
@@ -194,6 +116,72 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.022" />
+
+            <LinearLayout
+                android:layout_width="518dp"
+                android:layout_height="305dp"
+                android:layout_marginTop="60dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/buttonReceita"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/texttitleobs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nome" />
+
+                <EditText
+                    android:id="@+id/editTextObs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text" />
+
+                <TextView
+                    android:id="@+id/textvalor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Valor" />
+
+                <EditText
+                    android:id="@+id/editTextReceita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/textdata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data" />
+
+                <Button
+                    android:id="@+id/btn_select_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecionar Data"
+                    android:backgroundTint="@null"
+                    android:background="@android:color/darker_gray"/>
+
+
+                <TextView
+                    android:id="@+id/textSelTRec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecione o tipo de receita"
+                   />
+
+                <Spinner
+                    android:id="@+id/spinnerReceita"
+                    android:layout_width="258dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

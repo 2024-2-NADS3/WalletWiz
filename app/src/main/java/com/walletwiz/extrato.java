@@ -43,7 +43,7 @@ public class extrato extends AppCompatActivity {
         transacaoAdapter = new TransacaoAdapter(transacoes, this);
         recyclerViewExtrato.setAdapter(transacaoAdapter);
 
-        FloatingActionButton fabAdd = findViewById(R.id.fab_add_extrato);
+        FloatingActionButton fabAdd = findViewById(R.id.fab_add);
         fabAdd.setOnClickListener(v -> {
             Intent intent = new Intent(extrato.this, receita.class);
             startActivityForResult(intent, ADD_TRANSACTION_REQUEST);
@@ -61,8 +61,14 @@ public class extrato extends AppCompatActivity {
                     transacaoAdapter.notifyItemInserted(transacoes.size() - 1);
                 }
             } else if (requestCode == EDIT_TRANSACTION_REQUEST) {
-                // Implementar a edição da transação aqui
-                // ...
+                // Atualizar a transação editada
+                transacao transacaoEditada = (transacao) data.getSerializableExtra("transacao");
+                int position = data.getIntExtra("position", -1);
+                if (transacaoEditada != null && position != -1) {
+                    transacoes.set(position, transacaoEditada);
+                    transacaoAdapter.notifyItemChanged(position);
+                    Toast.makeText(this, "Transação editada com sucesso", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

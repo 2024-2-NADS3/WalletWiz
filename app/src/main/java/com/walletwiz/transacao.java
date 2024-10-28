@@ -6,12 +6,14 @@ public class transacao implements Serializable {
     private String tipo;
     private double valor;
     private String data;
+    private String categoria;
 
 
-    public transacao(String tipo, double valor, String data) {
+    public transacao(String tipo, double valor, String data, String categoria) {
         this.tipo = tipo;
         this.valor = valor;
         this.data = data;
+        this.categoria = categoria;
     }
 
     // Getters
@@ -26,4 +28,6 @@ public class transacao implements Serializable {
     public String getData() {
         return data;
     }
+
+    public String getCategoria() {return categoria;}
 }

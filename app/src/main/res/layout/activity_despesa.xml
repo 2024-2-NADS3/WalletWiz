@@ -16,8 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".session">
+            android:layout_height="match_parent">
 
 
             <androidx.appcompat.widget.Toolbar
@@ -39,23 +38,6 @@
                     android:contentDescription="@string/open_drawer"
                     android:src="@drawable/burger_menu" />
             </androidx.appcompat.widget.Toolbar>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/purpleww"
-                android:contentDescription="@string/add"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.983"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.976"
-                app:srcCompat="@drawable/baseline_add_circle_outline_24"
-                app:tint="@color/goldww" />
 
             <!-- Botão Flutuante para lançar ganhos -->
 
@@ -95,72 +77,6 @@
                 app:srcCompat="@drawable/baseline_attach_money_24"
                 app:tint="@color/goldww" />
 
-            <EditText
-                android:id="@+id/editTextObsDes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.185"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.262" />
-
-            <TextView
-                android:id="@+id/texttitleobs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Nome"
-                app:layout_constraintBottom_toTopOf="@+id/editTextObsDes"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.082"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <EditText
-                android:id="@+id/editTextDespesa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="52dp"
-                android:ems="10"
-                android:inputType="number"
-                app:layout_constraintBottom_toTopOf="@+id/editDateDespesa"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.185"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextObsDes"
-                app:layout_constraintVertical_bias="0.032" />
-
-            <TextView
-                android:id="@+id/textvalor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Valor"
-                app:layout_constraintBottom_toTopOf="@+id/editTextDespesa"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.079"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextObsDes"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <EditText
-                android:id="@+id/editDateDespesa"
-                android:layout_width="248dp"
-                android:layout_height="48dp"
-                android:layout_marginBottom="296dp"
-                android:ems="10"
-                android:inputType="date"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.185"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="1.0" />
-
             <Button
                 android:id="@+id/buttonDespesa"
                 android:layout_width="wrap_content"
@@ -168,23 +84,10 @@
                 android:text="Salvar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.483"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editDateDespesa"
-                app:layout_constraintVertical_bias="0.352" />
-
-            <TextView
-                android:id="@+id/textdata"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="344dp"
-                android:text="Data"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.088"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextDespesa"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
+                app:layout_constraintVertical_bias="0.762" />
 
             <TextView
                 android:id="@+id/textTitleDes"
@@ -198,6 +101,107 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.022" />
 
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="534dp"
+                android:layout_height="209dp"
+                android:layout_marginTop="56dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/buttonDespesa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.511"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/texttitleobs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Nome da dispesa" />
+
+                <EditText
+                    android:id="@+id/editTextObsDes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text" />
+
+                <TextView
+                    android:id="@+id/textvalor"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Valor" />
+
+                <EditText
+                    android:id="@+id/editTextDespesa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/textdata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data" />
+                <Button
+                    android:id="@+id/btn_select_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecionar Data"
+                    android:backgroundTint="@null"
+                    android:background="@android:color/darker_gray"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/purpleww"
+                android:contentDescription="@string/add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.992"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonDespesa"
+                app:layout_constraintVertical_bias="0.707"
+                app:srcCompat="@drawable/baseline_add_circle_outline_24"
+                app:tint="@color/goldww" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="535dp"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/buttonDespesa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.523"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Selecione o tipo de despesa" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinnerGastos"
+                    android:layout_width="265dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
@@ -210,4 +214,8 @@
         android:background="@color/purpleww"
         app:itemTextColor="@color/goldww"
         app:itemBackground="@color/purpleww"/>
+
+
+
+
 </androidx.drawerlayout.widget.DrawerLayout>
