@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.WalletWiz"
+        tools:targetApi="31">
+        <activity
+            android:name="br.fecap.pi.walletwiz.academy"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.perfil"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.simulador_aquisicoes"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.simulador"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.formlogin"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.login"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.extrato"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.receita"
+            android:exported="true" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.despesa"
+            android:exported="true" />
+        <activity
+            android:name="br.fecap.pi.walletwiz.session"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Corrigido: intent-filter dentro da activity -->
+        <activity
+            android:name="br.fecap.pi.walletwiz.MainActivity"
+            android:exported="false"
+            android:screenOrientation="sensor" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
