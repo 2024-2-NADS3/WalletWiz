@@ -23,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.049" />
 
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditTextNameC"
         android:layout_width="380dp"
@@ -31,11 +32,10 @@
         android:hint="E-mail"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.286" />
-
+        app:layout_constraintVertical_bias="0.542" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditTextKeyC"
@@ -45,9 +45,37 @@
         android:hint="Senha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.371" />
+        app:layout_constraintVertical_bias="0.626" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditTextKeyConf"
+        android:layout_width="379dp"
+        android:layout_height="36dp"
+        android:background="@drawable/radius"
+        android:hint="Confirmar senha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textNome"
+        android:layout_width="379dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/radius"
+        android:hint="Nome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCD"
+        app:layout_constraintVertical_bias="0.319" />
 
     <Button
         android:id="@+id/btn_login"
@@ -59,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputEditTextKeyC"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.98" />
 
     <TextView
         android:id="@+id/textlogin"
@@ -68,10 +96,10 @@
         android:text="Já tem uma conta?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintHorizontal_bias="0.349"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintVertical_bias="0.224" />
 
     <TextView
         android:id="@+id/link_login"
@@ -80,22 +108,19 @@
         android:text="Faça login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toEndOf="@+id/textlogin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.871" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textNome"
-        android:layout_width="379dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="64dp"
-        android:background="@drawable/radius"
-        android:hint="Nome"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textNome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCD"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
