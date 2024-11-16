@@ -12,7 +12,7 @@
 ## 📱Projeto WalletWiz
 
 <p align="center">
-<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" 
+<img src="![logowalletwiz](https://github.com/user-attachments/assets/80273c84-7591-4b80-8b6f-f438b59dca7d)" 
 </p>
 
 ## 📜 Descrição:
