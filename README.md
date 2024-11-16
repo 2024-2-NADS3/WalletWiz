@@ -46,6 +46,12 @@ Para abrir este projeto você necessita das seguintes ferramentas:
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2024-2-NADS3/WalletWiz">WalletWiz</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" <a href="https://www.linkedin.com/in/kauê-dantas-309098271/">Kauê Dantas</a>, <a href="https://www.linkedin.com/in/isaac-fs-santos/">Isaac Santos</a>, <a href="https://www.linkedin.com/in/giovanne-braga-0a4288280/">Giovanne Braga</a>, <a href="https://www.linkedin.com/in/icaro-luis-dellalo-silva-b8ab60304/">Icaro Dellalo</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
+## 🎨 Design
+
+Nosso projeto na plataforma figma para apresentar seu design:
+
+ <a href="https://www.figma.com/design/dAwN52uwsFZDyqOYPfJ8wt/WalletWiz?node-id=0-1&node-type=canvas&t=YibgJ2U05f5hgalI-0">Figma</a>
+
 ## 🎓 Referências
 
 1. <https://github.com/iuricode/readme-template>
