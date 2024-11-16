@@ -1,31 +1,23 @@
-# FECAP - Fundação de Comércio Álvares Penteado
+#  FECAP - Fundação de Comércio Álvares Penteado
 
 <p align="center">
 <a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0"></a>
 </p>
 
-# Nome do Projeto
+## Grupo WalletWiz
 
-## Nome do Grupo
+## Integrantes: <a href="https://www.linkedin.com/in/kauê-dantas-309098271/">Kauê Dantas</a>, <a href="https://www.linkedin.com/in/isaac-fs-santos/">Isaac Santos</a>, <a href="https://www.linkedin.com/in/giovanne-braga-0a4288280/">Giovanne Braga</a>, <a href="https://www.linkedin.com/in/icaro-luis-dellalo-silva-b8ab60304/">Icaro Dellalo</a>
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Goku Sayajin</a>, <a href="https://www.linkedin.com/in/victorbarq/">Saitama One</a>, <a href="https://www.linkedin.com/in/victorbarq/">Ikki de Fenix</a>, <a href="https://www.linkedin.com/in/victorbarq/">Yusuke Urameshi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Roronoa Zoro</a>
-
-## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Dr. Victor Von Doom</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Saitama</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Strange</a>, <a href="https://www.linkedin.com/in/victorbarq/">Me. Yoda</a>, <a href="https://www.linkedin.com/in/victorbarq/">Dr. Gero</a>
-
-## Descrição
+## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Victor Quiroz</a>, <a href="https://www.linkedin.com/in/francisco-escobar/">Francisco Escobar</a>,
+## 📱Projeto WalletWiz
 
 <p align="center">
-<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" alt="NOME DO JOGO" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
+<img src="https://pix4free.org/assets/library/2021-01-20/originals/game.jpg" 
 </p>
 
+## 📜 Descrição:
 
-De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
-<br><br>
-Meu projeto ajuda estudantes FECAP a configurarem seus githubs.
-<br><br>
-May the force be with you!
-<br><br>
+WalletWiz é um aplicativo Android de educação financeira com um tema mágico, projetado para transformar a gestão de finanças em uma experiência divertida e intuitiva. Com o slogan "Um toque de magia para suas finanças", o app ajuda os usuários a planejar, monitorar e otimizar suas finanças pessoais. Seu objetivo é simplificar a gestão financeira, tornando-a acessível e engajante, promovendo a educação financeira e contribuindo para a erradicação da pobreza.
 
 ## 🛠 Estrutura de pastas
 
