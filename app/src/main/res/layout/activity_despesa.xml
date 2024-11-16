@@ -79,21 +79,22 @@
 
             <Button
                 android:id="@+id/buttonDespesa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="99dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btnshape"
                 android:text="Salvar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.483"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.762" />
+                app:layout_constraintVertical_bias="0.639" />
 
             <TextView
                 android:id="@+id/textTitleDes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Despesa"
+
                 android:textColor="@color/purpleww"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,101 +125,114 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.156"
+                app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.489" />
+                app:layout_constraintVertical_bias="0.435" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="228dp"
-                android:layout_height="19dp"
+                android:layout_height="21dp"
                 android:text="Selecione o tipo de despesa"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.121"
+                app:layout_constraintHorizontal_bias="0.06"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.448" />
+                app:layout_constraintVertical_bias="0.386" />
 
             <Button
                 android:id="@+id/btn_select_date"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
+                android:layout_height="40dp
+"
                 android:backgroundTint="@null"
                 android:text="Selecionar Data"
+                android:background="@drawable/btnshape"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintHorizontal_bias="0.506"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.363" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.575" />
 
             <TextView
                 android:id="@+id/textvalor"
                 android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:text="Valor"
+                android:text="Valor:"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.049"
+                app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.194" />
+                app:layout_constraintVertical_bias="0.184" />
+
+            <TextView
+                android:id="@+id/textvalor2"
+                android:layout_width="81dp"
+                android:layout_height="21dp"
+                android:text="Observação:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.034"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
+                app:layout_constraintVertical_bias="0.276" />
 
             <EditText
                 android:id="@+id/editTextDespesa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="373dp"
+                android:layout_height="38dp"
                 android:background="@drawable/radius"
                 android:ems="10"
                 android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.109"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.225" />
+                app:layout_constraintVertical_bias="0.224" />
 
-            <TextView
-                android:id="@+id/textdata"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Data"
+            <EditText
+                android:id="@+id/editTextObservacao"
+                android:layout_width="373dp"
+                android:layout_height="38dp"
+                android:background="@drawable/radius"
+                android:ems="10"
+                android:inputType="text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.325" />
+                app:layout_constraintVertical_bias="0.32" />
 
             <EditText
                 android:id="@+id/editTextObsDes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="373dp"
+                android:layout_height="38dp"
                 android:layout_marginTop="60dp"
                 android:background="@drawable/radius"
                 android:ems="10"
                 android:inputType="text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.109"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="0.046" />
+                app:layout_constraintVertical_bias="0.057" />
 
             <TextView
                 android:id="@+id/texttitleobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome da dispesa"
+                android:text="Nome da despesa:"
                 app:layout_constraintBottom_toTopOf="@+id/editTextObsDes"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintHorizontal_bias="0.035"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textTitleDes"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.901" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

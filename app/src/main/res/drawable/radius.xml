@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@android:color/white" /> <!-- Cor de fundo -->
-    <corners android:radius="16dp" /> <!-- Raio das bordas -->
+    <corners android:radius="8dp" /> <!-- Raio das bordas -->
     <stroke
         android:width="2dp"
         android:color="@color/purpleww" /> <!-- Cor e largura da borda -->
