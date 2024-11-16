@@ -1,16 +1,23 @@
 package br.fecap.pi.walletwiz;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.navigation.NavigationView;
 import android.util.Log;
 import android.view.View;
@@ -112,9 +119,33 @@ public class session extends AppCompatActivity {
             Intent intent = new Intent(session.this, receita.class);
             startActivityForResult(intent, 2);
         });
+
+        PieChart pieChart = findViewById(R.id.pieChart);
+        ArrayList<PieEntry> balancos = new ArrayList<>();
+        balancos.add(new PieEntry(900, "Despesa"));
+        balancos.add(new PieEntry(500, "Receita"));
+
+        int red = ContextCompat.getColor(this, android.R.color.holo_red_dark);
+        int green = ContextCompat.getColor(this, android.R.color.holo_green_dark);
+
+        List<Integer> colors = new ArrayList<Integer>();
+        colors.add(red);
+        colors.add(green);
+
+        PieDataSet pieDataSet = new PieDataSet(balancos, "Balanços");
+        pieDataSet.setColors(colors);
+        pieDataSet.setValueTextColor(Color.BLACK);
+        pieDataSet.setValueTextSize(16f);
+
+        PieData pieData = new PieData(pieDataSet);
+
+        pieChart.setData(pieData);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setCenterText("Balanços");
+        pieChart.animate();
     }
 
-    // Método para gerenciar a navegação
+    /// Metodo para gerenciar a navegação
     private void navigateToActivity(Class<?> activityClass) {
         Intent intent = new Intent(this, activityClass);
         startActivity(intent);

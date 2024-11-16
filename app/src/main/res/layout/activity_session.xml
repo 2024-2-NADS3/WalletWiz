@@ -176,8 +176,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/textDes"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="386dp"
+                android:layout_height="509dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -188,4 +197,7 @@
         android:background="@color/purpleww"
         app:itemTextColor="@color/goldww"
         app:itemBackground="@color/purpleww"/>
+
+</LinearLayout>
+
 </androidx.drawerlayout.widget.DrawerLayout>
