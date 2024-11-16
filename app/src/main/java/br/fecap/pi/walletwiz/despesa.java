@@ -65,8 +65,8 @@ public class despesa extends AppCompatActivity {
     }
 
     private void initViews() {
-        editTextDescricao = findViewById(R.id.editTextObsDes);
-        editTextValor = findViewById(R.id.editTextDespesa);
+        editTextDescricao = findViewById(R.id.editTextObservacaoDespesa);
+        editTextValor = findViewById(R.id.editTextValorDespesa);
         buttonSelectDate = findViewById(R.id.btn_select_date);
         buttonSalvar = findViewById(R.id.buttonDespesa);
         spinnerGastos = findViewById(R.id.spinnerGastos);

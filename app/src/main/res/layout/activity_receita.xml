@@ -96,15 +96,16 @@
                 app:tint="@color/goldww" />
 
             <Button
-                android:id="@+id/buttonReceita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/buttonSalvarReceita"
+                android:layout_width="99dp"
+                android:layout_height="40dp"
+                android:background="@drawable/btnshape"
                 android:text="Salvar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="0.77" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.639" />
 
             <TextView
                 android:id="@+id/textTitleRec"
@@ -116,7 +117,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.022" />
+                app:layout_constraintVertical_bias="0.019" />
 
             <TextView
                 android:id="@+id/textSelTRec"
@@ -125,100 +126,111 @@
                 android:text="Selecione o tipo de receita"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.104"
+                app:layout_constraintHorizontal_bias="0.048"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.41" />
 
             <Spinner
                 android:id="@+id/spinnerReceita"
                 android:layout_width="258dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="164dp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonReceita"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.177"
+                app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.45" />
 
             <Button
                 android:id="@+id/btn_select_date"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
+                android:layout_height="40dp"
+                android:background="@drawable/btnshape"
                 android:backgroundTint="@null"
                 android:text="Selecionar Data"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.098"
+                app:layout_constraintHorizontal_bias="0.506"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="0.379" />
-
-            <TextView
-                android:id="@+id/textdata"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Data"
-                app:layout_constraintBottom_toTopOf="@+id/btn_select_date"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.066"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.575" />
 
             <EditText
                 android:id="@+id/editTextReceita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="172dp"
+                android:layout_width="373dp"
+                android:layout_height="38dp"
                 android:background="@drawable/radius"
                 android:ems="10"
                 android:inputType="number"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.157"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.25" />
+
+            <EditText
+                android:id="@+id/editTextObservacao"
+                android:layout_width="373dp"
+                android:layout_height="38dp"
+                android:background="@drawable/radius"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.35000002" />
 
             <TextView
-                android:id="@+id/textvalor"
+                android:id="@+id/textValor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Valor"
-                app:layout_constraintBottom_toTopOf="@+id/editTextReceita"
+                android:text="Valor:"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.064"
+                app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.211" />
+
+            <TextView
+                android:id="@+id/textObservacaoReceita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Observação:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.035"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.31" />
 
             <EditText
                 android:id="@+id/editTextObs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="373dp"
+                android:layout_height="38dp"
                 android:background="@drawable/radius"
                 android:ems="10"
                 android:inputType="text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.143"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="0.116" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.158" />
 
             <TextView
                 android:id="@+id/texttitleobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome"
-                app:layout_constraintBottom_toTopOf="@+id/editTextObs"
+                android:text="Nome da Receita:"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.064"
+                app:layout_constraintHorizontal_bias="0.039"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textTitleRec"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.119
+" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

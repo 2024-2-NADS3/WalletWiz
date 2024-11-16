@@ -68,7 +68,7 @@ public class receita extends AppCompatActivity {
         editTextDescricao = findViewById(R.id.editTextObs);
         editTextValor = findViewById(R.id.editTextReceita);
         buttonSelectDate = findViewById(R.id.btn_select_date);
-        buttonSalvar = findViewById(R.id.buttonReceita);
+        buttonSalvar = findViewById(R.id.buttonSalvarReceita);
         spinnerReceita = findViewById(R.id.spinnerReceita);
     }
 
