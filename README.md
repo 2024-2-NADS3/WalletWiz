@@ -12,8 +12,9 @@
 ## 📱Projeto WalletWiz
 
 <p align="center">
-<img src="https://github.com/2024-2-NADS3/WalletWiz/blob/main/imagens/logowalletwiz.jpg?raw=true" 
+  <img src="https://github.com/2024-2-NADS3/WalletWiz/blob/main/imagens/logowalletwiz.jpg?raw=true" width="550" alt="Logo WalletWiz">
 </p>
+
 
 ## 📜 Descrição:
 
@@ -35,6 +36,12 @@ WalletWiz é um aplicativo Android de educação financeira com um tema mágico,
   &emsp;|-->Backend<br>
   &emsp;|-->Frontend<br>
 |readme.md<br>
+
+## 📂 Documentos:
+- <b><a href="https://drive.google.com/file/d/1wE7gPJE3Si1lcCfxBAxdq22NMJagdNDf/view?usp=drive_link">Storyboard</a></b>
+- <b><a href="https://drive.google.com/file/d/1Ggw1mmZ_f3MMnjQNwySekwBdgltO4eyp/view?usp=drive_link">Mapa de Jornada</a></b>
+- <b><a href="https://drive.google.com/file/d/1QpBWIkxgDVYO5p99YyUCAttJAVzC_uM5/view?usp=drive_link">Personas</a></b>
+- <b><a href="https://drive.google.com/file/d/11vPTdsCav9ESnrwZmb4z_V15nz7aTfYo/view?usp=drive_link">User Storie</a></b>
 
 ## 💻 Configuração para Desenvolvimento:
 
