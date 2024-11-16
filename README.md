@@ -12,7 +12,7 @@
 ## 📱Projeto WalletWiz
 
 <p align="center">
-<img src="![logowalletwiz](https://github.com/user-attachments/assets/80273c84-7591-4b80-8b6f-f438b59dca7d)" 
+<img src="https://github.com/2024-2-NADS3/WalletWiz/blob/main/imagens/logowalletwiz.jpg?raw=true" 
 </p>
 
 ## 📜 Descrição:
