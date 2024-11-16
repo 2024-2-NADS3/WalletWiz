@@ -17,7 +17,7 @@
 
 ## 📜 Descrição:
 
-WalletWiz é um aplicativo Android de educação financeira com um tema mágico, projetado para transformar a gestão de finanças em uma experiência divertida e intuitiva. Com o slogan "Um toque de magia para suas finanças", o app ajuda os usuários a planejar, monitorar e otimizar suas finanças pessoais. Seu objetivo é simplificar a gestão financeira, tornando-a acessível e engajante, promovendo a educação financeira e contribuindo para a erradicação da pobreza.
+WalletWiz é um aplicativo Android de educação financeira com um tema mágico, projetado para transformar a gestão de finanças em uma experiência divertida e intuitiva. Com o slogan "Seja o mágico das suas finanças", o app ajuda os usuários a planejar, monitorar e otimizar suas finanças pessoais. Seu objetivo é simplificar a gestão financeira, tornando-a acessível e engajante, promovendo a educação financeira e contribuindo para a erradicação da pobreza.
 
 ## 🛠 Estrutura de pastas
 
