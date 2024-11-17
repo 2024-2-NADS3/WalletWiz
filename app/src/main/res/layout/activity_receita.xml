@@ -232,6 +232,22 @@
                 app:layout_constraintVertical_bias="0.119
 " />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                android:stateListAnimator="@null"
+                app:elevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.954"
+                app:srcCompat="@drawable/back" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 

@@ -62,6 +62,9 @@ public class receita extends AppCompatActivity {
         if (transacaoParaEditar != null) {
             preencherCamposComTransacao(transacaoParaEditar);
         }
+
+        FloatingActionButton fabBack = findViewById(R.id.back);
+        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
     private void initViews() {
@@ -71,6 +74,7 @@ public class receita extends AppCompatActivity {
         buttonSalvar = findViewById(R.id.buttonSalvarReceita);
         spinnerReceita = findViewById(R.id.spinnerReceita);
     }
+
 
     private void setupSpinner() {
         ArrayList<String> tiposDeReceitas = new ArrayList<>();
@@ -123,6 +127,8 @@ public class receita extends AppCompatActivity {
             return false;
         });
     }
+
+
 
     private void setupFloatingActionButton() {
         fabAdd = findViewById(R.id.fab_add);

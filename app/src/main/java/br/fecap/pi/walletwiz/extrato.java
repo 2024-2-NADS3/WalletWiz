@@ -1,5 +1,6 @@
 package br.fecap.pi.walletwiz;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -84,6 +85,8 @@ public class extrato extends AppCompatActivity {
         });
 
         setupDrawer();
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) FloatingActionButton fabBack = findViewById(R.id.back);
+        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
     private void openFABMenu() {

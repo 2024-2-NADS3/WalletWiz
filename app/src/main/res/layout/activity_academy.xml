@@ -8,7 +8,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.fecap.pi.walletwiz.academy">
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -69,6 +70,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/textTitleProfi">
 
                 <!-- Accordion Item 7 -->
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="25dp"
+                    android:paddingBottom="25dp"
+                    android:text="Nesse espaço, você encontra dicas valiosas para aprender a lídar melhor com as suas finanças!"
+                    android:textColor="@color/black" />
+
                 <LinearLayout
                     android:id="@+id/accordion7"
                     android:layout_width="match_parent"
@@ -85,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="8dp"
-                        android:text="O QUE E INVESTIMENTO"
+                        android:text="O QUE SÃO INVESTIMENTOS?"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -139,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="8dp"
-                        android:text="COMO COMEÇAR A INVESTIR"
+                        android:text="COMO COMEÇAR A INVESTIR?"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -246,7 +256,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="8dp"
-                        android:text="PORQUE APOSTAS NÃO SÃO INVESTIMENTOS"
+                        android:text="PORQUE APOSTAS NÃO SÃO INVESTIMENTOS?"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -495,6 +505,22 @@
                     android:textColor="#555555"
                     android:visibility="gone" />
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:clickable="true"
+                    android:stateListAnimator="@null"
+                    app:elevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.053"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.954"
+                    app:srcCompat="@drawable/back" />
+
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -510,3 +536,5 @@
         app:itemTextColor="@color/goldww"
         app:itemBackground="@color/purpleww"/>
 </androidx.drawerlayout.widget.DrawerLayout>
+
+

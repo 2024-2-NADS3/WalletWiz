@@ -62,6 +62,9 @@ public class despesa extends AppCompatActivity {
         if (transacaoParaEditar != null) {
             preencherCamposComTransacao(transacaoParaEditar);
         }
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) FloatingActionButton fabBack = findViewById(R.id.back);
+        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
     private void initViews() {

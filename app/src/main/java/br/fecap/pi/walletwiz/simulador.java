@@ -17,6 +17,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.text.SimpleDateFormat;
@@ -80,6 +81,9 @@ public class simulador extends AppCompatActivity {
 
 
         btnSalvar.setOnClickListener(v -> salvarSimulacao());
+
+        FloatingActionButton fabBack = findViewById(R.id.back);
+        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
 

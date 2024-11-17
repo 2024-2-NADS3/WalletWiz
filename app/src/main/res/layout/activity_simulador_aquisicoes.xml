@@ -56,6 +56,22 @@
                 app:srcCompat="@drawable/baseline_add_circle_outline_24"
                 app:tint="@color/goldww" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                android:stateListAnimator="@null"
+                app:elevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.954"
+                app:srcCompat="@drawable/back" />
+
             <TextView
                 android:id="@+id/textSimu"
                 android:layout_width="wrap_content"
@@ -73,46 +89,12 @@
                 android:id="@+id/textNomeAquisicao"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="112dp"
                 android:text="Nome da Aquisição"
                 android:textColor="@color/purpleww"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textSimu" />
-
-            <TextView
-                android:id="@+id/textValorTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:text="Valor Total: R$ 0.00"
-                android:textColor="@color/purpleww"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textNomeAquisicao" />
-
-            <TextView
-                android:id="@+id/textValorGuardado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
-                android:text="Valor Guardado: R$ 0.00"
-                android:textColor="@color/purpleww"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textValorTotal" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewAquisicoes"
-                android:layout_width="362dp"
-                android:layout_height="506dp"
-                android:layout_marginTop="8dp"
-                app:layoutManager="LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textPorcentagem"
-                app:layout_constraintVertical_bias="0.127" />
 
             <TextView
                 android:id="@+id/textPorcentagem"
@@ -122,9 +104,54 @@
                 android:text="Progresso: 0%"
                 android:textColor="@color/purpleww"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.017"
+                app:layout_constraintHorizontal_bias="0.037"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBarSimulacao" />
+
+            <ProgressBar
+                android:id="@+id/progressBarSimulacao"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="393dp"
+                android:layout_height="13dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.555"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textValorGuardado" />
+
+            <TextView
+                android:id="@+id/textValorGuardado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:text="Valor Guardado: R$ 0.00"
+                android:textColor="@color/purpleww"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textValorTotal" />
+
+            <TextView
+                android:id="@+id/textValorTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:text="Valor Total: R$ 0.00"
+                android:textColor="@color/purpleww"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textNomeAquisicao" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewAquisicoes"
+                android:layout_width="367dp"
+                android:layout_height="343dp"
+                app:layoutManager="LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.227"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.731" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -132,15 +159,18 @@
                 android:layout_margin="8dp"
                 app:cardCornerRadius="8dp" />
 
-            <ProgressBar
-                android:id="@+id/progressBarSimulacao"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="393dp"
-                android:layout_height="13dp"
-                android:layout_marginTop="16dp"
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="401dp"
+                android:layout_height="42dp"
+                android:text="Nessa área vacê confere suas simulações salvas como objetivos igual ao exemplo abaixo:"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textValorGuardado" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.114" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

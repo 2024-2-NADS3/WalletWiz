@@ -79,7 +79,11 @@ public class session extends AppCompatActivity {
                 navigateToActivity(simulador_aquisicoes.class);
                 return true;
 
-            } else {
+            } else if (id == R.id.nav_academy) {
+                navigateToActivity(academy.class);
+                return true;
+
+            }else {
                 return false;
             }
         });

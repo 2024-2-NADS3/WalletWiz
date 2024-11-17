@@ -1,5 +1,6 @@
 package br.fecap.pi.walletwiz;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import br.fecap.walletwiz.R;
@@ -166,20 +168,14 @@ public class academy extends AppCompatActivity {
                 toggleContent(content8, icon8, image8);
             }
         });
+
+        setupDrawer();
+
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) FloatingActionButton fabBack = findViewById(R.id.back);
+        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
-    // Função para alternar a visibilidade do conteúdo e o ícone
-    private void toggleContent(TextView content, TextView icon, ImageView image) {
-        if (content.getVisibility() == View.GONE) {
-            content.setVisibility(View.VISIBLE);
-            image.setVisibility(View.VISIBLE);
-            icon.setText("-");
-        } else {
-            content.setVisibility(View.GONE);
-            image.setVisibility(View.GONE);
-            icon.setText("+");
-        }
-    } private void setupDrawer() {
+    private void setupDrawer() {
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open_drawer, R.string.close_drawer);
@@ -219,5 +215,18 @@ public class academy extends AppCompatActivity {
 
             return false;
         });
+    }
+
+    // Função para alternar a visibilidade do conteúdo e o ícone
+    private void toggleContent(TextView content, TextView icon, ImageView image) {
+        if (content.getVisibility() == View.GONE) {
+            content.setVisibility(View.VISIBLE);
+            image.setVisibility(View.VISIBLE);
+            icon.setText("-");
+        } else {
+            content.setVisibility(View.GONE);
+            image.setVisibility(View.GONE);
+            icon.setText("+");
+        }
     }
 }

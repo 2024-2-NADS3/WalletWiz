@@ -65,6 +65,8 @@ public class simulador_aquisicoes extends AppCompatActivity implements Simulacao
         });
 
         setupDrawer();
+        FloatingActionButton fabBack = findViewById(R.id.back);
+        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
     //////////////////////////////
