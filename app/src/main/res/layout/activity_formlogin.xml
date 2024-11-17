@@ -26,68 +26,63 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditTextNameC"
-        android:layout_width="380dp"
-        android:layout_height="37dp"
+        android:layout_width="373dp"
+        android:layout_height="38dp"
         android:background="@drawable/radius"
         android:hint="E-mail"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542" />
+        app:layout_constraintVertical_bias="0.558" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditTextKeyC"
-        android:layout_width="379dp"
-        android:layout_height="36dp"
+        android:layout_width="373dp"
+        android:layout_height="38dp"
         android:background="@drawable/radius"
         android:hint="Senha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.626" />
+        app:layout_constraintVertical_bias="0.634" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditTextKeyConf"
-        android:layout_width="379dp"
-        android:layout_height="36dp"
+        android:layout_width="373dp"
+        android:layout_height="38dp"
         android:background="@drawable/radius"
         android:hint="Confirmar senha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705" />
+        app:layout_constraintVertical_bias="0.712" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textNome"
-        android:layout_width="379dp"
-        android:layout_height="34dp"
+        android:layout_width="373dp"
+        android:layout_height="38dp"
         android:layout_marginTop="64dp"
         android:background="@drawable/radius"
         android:hint="Nome"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCD"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="156dp"
         android:text="Cadastre-se"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditTextKeyC"
-        app:layout_constraintVertical_bias="0.98" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.836" />
 
     <TextView
         android:id="@+id/textlogin"
@@ -96,10 +91,10 @@
         android:text="Já tem uma conta?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918" />
 
     <TextView
         android:id="@+id/link_login"
@@ -108,10 +103,10 @@
         android:text="Faça login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toEndOf="@+id/textlogin"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871" />
+        app:layout_constraintVertical_bias="0.918" />
 
     <ImageView
         android:id="@+id/imageView2"

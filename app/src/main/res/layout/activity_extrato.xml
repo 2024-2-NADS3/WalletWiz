@@ -15,12 +15,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewExtrato"
-        android:layout_width="363dp"
-        android:layout_height="558dp"
+        android:layout_width="361dp"
+        android:layout_height="494dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.603" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarP"
@@ -101,24 +102,25 @@
         android:id="@+id/textExtrato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Extrato"
         android:textColor="@color/purpleww"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewExtrato"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toEndOf="@+id/toolbarP"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <HorizontalScrollView
         android:id="@+id/hScrollView"
         android:layout_width="604dp"
         android:layout_height="58dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewExtrato"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.393"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textExtrato">
+        app:layout_constraintTop_toBottomOf="@+id/textExtrato"
+        app:layout_constraintVertical_bias="0.047">
 
         <LinearLayout
             android:layout_width="wrap_content"
