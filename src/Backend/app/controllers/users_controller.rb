@@ -17,9 +17,11 @@ class UsersController < ApplicationController
   def show_balance
     # Soma todos os valores das transações
     total_balance = @user.transactions.sum(:valor)
+    total_income = @user.transactions.filter { |t| t.valor >= 0 }.map { |t| t.valor }.sum
+    total_outgoing = @user.transactions.filter { |t| t.valor < 0 }.map { |t| t.valor }.sum
   
     # Retorna o total da soma no formato JSON
-    render json: { total_balance: total_balance }
+    render json: { total_balance: total_balance, total_income: total_income, total_outgoing: total_outgoing }
   end
 
 

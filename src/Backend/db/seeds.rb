@@ -55,25 +55,25 @@
 
      [
         {
-            "valor": "3000",
+            "valor": 3000,
             "data": "24/11/2004",
             "observacao": "teste",
             "transaction_type_id": 2,
             "user_id": 2
         },
         {
-            "valor": "5000",
-            "data": "11/10/23",
+            "valor": 5000,
+            "data": "11/10/2023",
             "observacao": "teste",
-            "transaction_type_id": 3,
-            "user_id": 3
+            "transaction_type_id": 2,
+            "user_id": 2
         },
         {
-            "valor": "3000",
-            "data": "11/11/11",
+            "valor": -3000,
+            "data": "11/11/2011",
             "observacao": "teste",
-            "transaction_type_id": 3,
-            "user_id": 3
+            "transaction_type_id": 2,
+            "user_id": 2
         }
         
     ].each do |transaction|
