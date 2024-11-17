@@ -124,6 +124,7 @@ public class session extends AppCompatActivity {
             startActivityForResult(intent, 2);
         });
 
+        ///Grafico
         PieChart pieChart = findViewById(R.id.pieChart);
         ArrayList<PieEntry> balancos = new ArrayList<>();
         balancos.add(new PieEntry(900, "Despesa"));

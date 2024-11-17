@@ -104,8 +104,7 @@
                 android:textColor="@color/purpleww"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.432"
-                app:layout_constraintStart_toEndOf="@+id/toolbarP"
+                app:layout_constraintStart_toStartOf="@+id/toolbarP"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.022" />
 
@@ -117,7 +116,6 @@
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textSimu"
                 app:layout_constraintVertical_bias="0.0" />
@@ -126,11 +124,12 @@
                 android:id="@+id/textRec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Saldo"
+                android:text="Receita"
                 android:textColor="@color/grayww"
+                android:textSize="17dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textDes"
-                app:layout_constraintHorizontal_bias="0.125"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.119" />
@@ -141,9 +140,10 @@
                 android:layout_height="wrap_content"
                 android:text="Despesa"
                 android:textColor="@color/grayww"
+                android:textSize="17dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.889"
+                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.119" />
@@ -156,8 +156,8 @@
                 android:text="R$0.00"
                 android:textColor="@color/greenww"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textDesValue"
-                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.21"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textRec"
                 app:layout_constraintVertical_bias="0.0" />
@@ -171,7 +171,7 @@
                 android:textColor="@color/redww"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.892"
+                app:layout_constraintHorizontal_bias="0.79"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDes"
                 app:layout_constraintVertical_bias="0.0" />
