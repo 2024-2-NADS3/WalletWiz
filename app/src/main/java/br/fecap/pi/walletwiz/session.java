@@ -47,6 +47,7 @@ public class session extends AppCompatActivity {
     private List<transacao> transacoes = new ArrayList<>();
     private OkHttpClient _client = new OkHttpClient();
     private PieChart pieChart;
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,8 @@ public class session extends AppCompatActivity {
             finish();
             return;
         }
+
+        userId = sharedPreferences.getInt("userId", 0);
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_session);
@@ -149,7 +152,7 @@ public class session extends AppCompatActivity {
 
         ///Grafico
         pieChart = findViewById(R.id.pieChart);
-        getBalance(2);
+        getBalance(userId);
 
     }
 
@@ -173,11 +176,11 @@ public class session extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            getBalance(2);
+            getBalance(userId);
         }
     }
 
-    public void calcularBalanco(UserBalance userBalance) {
+    public void renderBalance(UserBalance userBalance) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -210,7 +213,7 @@ public class session extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 UserBalance u = new Gson().fromJson(response.body().string(), UserBalance.class);
                 renderChart(u);
-                calcularBalanco(u);
+                renderBalance(u);
             }
         });
     }
