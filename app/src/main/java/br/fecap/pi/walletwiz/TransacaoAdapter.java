@@ -11,17 +11,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
+import br.fecap.pi.walletwiz.model.ENUM_TYPE;
+import br.fecap.pi.walletwiz.model.Transaction;
 import br.fecap.walletwiz.R;
 
 import java.util.List;
 
 public class TransacaoAdapter extends RecyclerView.Adapter<TransacaoAdapter.ViewHolder> {
 
-    private List<transacao> transacoes;
+    private List<Transaction> transactions;
     private Context context;
 
-    public TransacaoAdapter(List<transacao> transacoes, Context context) {
-        this.transacoes = transacoes;
+    public TransacaoAdapter(List<Transaction> transactions, Context context) {
+        this.transactions = transactions;
         this.context = context;
     }
 
@@ -34,24 +37,27 @@ public class TransacaoAdapter extends RecyclerView.Adapter<TransacaoAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        transacao transacao = transacoes.get(position);
-        holder.textViewDescricao.setText(transacao.getData() + ": " + transacao.getTipo() + " - R$" + transacao.getValor() + " " + transacao.getCategoria());
+        Transaction transaction = transactions.get(position);
+
+        final boolean isIncome = transaction.getTipo() == ENUM_TYPE.INCOME;
+
+        holder.textViewDescricao.setText(transaction.data + ": " + (isIncome ? "Despesa" : "Receita") + " - R$" + transaction.valor + " " + transaction.transaction_type.nome);
 
         // Define a cor do texto com base no tipo de transação
-        if ("despesa".equals(transacao.getTipo())) {
-            holder.textViewDescricao.setTextColor(Color.RED); // Vermelho para despesas
-        } else if ("receita".equals(transacao.getTipo())) {
+        if (isIncome) {
             holder.textViewDescricao.setTextColor(Color.parseColor("#388E3C")); // Verde escuro para receitas
+        } else {
+            holder.textViewDescricao.setTextColor(Color.RED);
         }
 
         holder.itemView.setOnClickListener(v -> {
             Intent intent;
-            if (transacao.getTipo().equals("receita")) {
+            if (isIncome) {
                 intent = new Intent(context, receita.class);
             } else {
                 intent = new Intent(context, despesa.class);
             }
-            intent.putExtra("transacao", transacao);
+            intent.putExtra("transaction", transaction.toJson());
             ((extrato) context).startActivityForResult(intent, 2);
         });
 
@@ -62,13 +68,12 @@ public class TransacaoAdapter extends RecyclerView.Adapter<TransacaoAdapter.View
                         switch (which) {
                             case 0: // Editar
                                 Intent editIntent;
-                                if (transacao.getTipo().equals("receita")) {
+                                if (isIncome) {
                                     editIntent = new Intent(context, receita.class); // Inicie a Activity de receita
                                 } else {
                                     editIntent = new Intent(context, despesa.class); // Inicie a Activity de despesa
                                 }
-                                editIntent.putExtra("transacao", transacao);
-                                editIntent.putExtra("position", position);
+                                editIntent.putExtra("transaction", transaction.toJson());
                                 ((extrato) context).startActivityForResult(editIntent, 2);
                                 break;
                             case 1: // Excluir
@@ -84,7 +89,7 @@ public class TransacaoAdapter extends RecyclerView.Adapter<TransacaoAdapter.View
 
     @Override
     public int getItemCount() {
-        return transacoes.size();
+        return transactions.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

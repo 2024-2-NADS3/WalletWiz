@@ -2,6 +2,7 @@ package br.fecap.pi.walletwiz;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,22 +15,39 @@ import androidx.core.view.GravityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.ActionBarDrawerToggle;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-import br.fecap.walletwiz.R;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import br.fecap.pi.walletwiz.model.Transaction;
+import br.fecap.walletwiz.R;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class extrato extends AppCompatActivity {
 
+    private SharedPreferences sharedPreferences;
+    private int userId;
+    private OkHttpClient _client = new OkHttpClient();
+    private List<Transaction> transactions = new ArrayList<Transaction>();
+
+
     private RecyclerView recyclerViewExtrato;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    private TransacaoAdapter transacaoAdapter;
+    private TransacaoAdapter adapter;
     private List<transacao> transacoes = new ArrayList<>();
     private static final int ADD_TRANSACTION_REQUEST = 1;
     private static final int EDIT_TRANSACTION_REQUEST = 2;
@@ -40,21 +58,27 @@ public class extrato extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+
+        // Se o usuário não estiver logado, redirecionar para o Login
+        if (!sharedPreferences.getBoolean("isLoggedIn", false)) {
+            startActivity(new Intent(this, login.class));
+            finish();
+            return;
+        }
+
+        userId = sharedPreferences.getInt("userId", 0);
+
         setContentView(R.layout.activity_extrato);
-
-
 
         recyclerViewExtrato = findViewById(R.id.recyclerViewExtrato);
         recyclerViewExtrato.setLayoutManager(new LinearLayoutManager(this));
 
-        // Obter transações da sessão
-        transacoes = (ArrayList<transacao>) getIntent().getSerializableExtra("transacoes");
-        if (transacoes == null) {
-            transacoes = new ArrayList<>();
-        }
+        getTransactions(userId);
 
-        transacaoAdapter = new TransacaoAdapter(transacoes, this);
-        recyclerViewExtrato.setAdapter(transacaoAdapter);
+        adapter = new TransacaoAdapter(transactions, this);
+        recyclerViewExtrato.setAdapter(adapter);
 
         // Configuração do FAB
         fabAdd = findViewById(R.id.fab_add);
@@ -157,7 +181,7 @@ public class extrato extends AppCompatActivity {
                 transacao novaTransacao = (transacao) data.getSerializableExtra("nova_transacao");
                 if (novaTransacao != null) {
                     transacoes.add(novaTransacao);
-                    transacaoAdapter.notifyItemInserted(transacoes.size() - 1);
+                    adapter.notifyItemInserted(transacoes.size() - 1);
                 }
             } else if (requestCode == EDIT_TRANSACTION_REQUEST) {
                 // Atualizar a transação editada
@@ -165,7 +189,7 @@ public class extrato extends AppCompatActivity {
                 int position = data.getIntExtra("position", -1);
                 if (transacaoEditada != null && position != -1) {
                     transacoes.set(position, transacaoEditada);
-                    transacaoAdapter.notifyItemChanged(position);
+                    adapter.notifyItemChanged(position);
                     Toast.makeText(this, "Transação editada com sucesso", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -174,6 +198,39 @@ public class extrato extends AppCompatActivity {
 
     public void atualizarTransacao(int position) {
         transacoes.remove(position);
-        transacaoAdapter.notifyItemRemoved(position);
+        adapter.notifyItemRemoved(position);
+    }
+
+    private void getTransactions(int id) {
+        String url = "http://ec2-3-14-146-243.us-east-2.compute.amazonaws.com:3003/users";
+        String path = String.format("%s/%s/transactions", url, id);
+        Request getRequest = new Request.Builder()
+                .url(path)
+                .build();
+
+        _client.newCall(getRequest).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                call.cancel();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    JSONArray arr = new JSONArray(response.body().string());
+
+                    for (int i = 0; i < arr.length(); i++) {
+                        JSONObject o = arr.getJSONObject(i);
+                        Transaction t = new Transaction();
+                        t.build(o);
+                        transactions.add(t);
+                    }
+                    runOnUiThread(() -> adapter.notifyDataSetChanged());
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        });
     }
 }
