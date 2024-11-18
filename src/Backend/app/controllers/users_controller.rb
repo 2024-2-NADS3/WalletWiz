@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    
     render json: @user
   end
 
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
     total_balance = @user.transactions.sum(:valor)
     total_income = @user.transactions.filter { |t| t.valor >= 0 }.map { |t| t.valor }.sum
     total_outgoing = @user.transactions.filter { |t| t.valor < 0 }.map { |t| t.valor }.sum
-  
+
     # Retorna o total da soma no formato JSON
     render json: { total_balance: total_balance, total_income: total_income, total_outgoing: total_outgoing }
   end
@@ -38,7 +37,6 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-
     if @user.update(user_params)
       render json: @user
     else
@@ -48,8 +46,16 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-
     @user.destroy!
+  end
+
+  def login
+    @user = User.find_by(login_params)
+    if @user
+      render json: @user
+    else
+      render status: :not_found
+    end
   end
 
   private
@@ -61,5 +67,9 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:nome, :sobrenome, :cpf, :endereco, :email, :senha)
+    end
+
+    def login_params
+      params.permit(:email, :senha)
     end
 end
