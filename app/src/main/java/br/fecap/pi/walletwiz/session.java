@@ -17,7 +17,6 @@ import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.navigation.NavigationView;
 import android.util.Log;
 import android.view.View;
@@ -25,8 +24,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import br.fecap.walletwiz.R;
+import com.google.gson.Gson;
 
+import br.fecap.pi.walletwiz.model.UserBalance;
+import br.fecap.walletwiz.R;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +44,13 @@ public class session extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private FloatingActionButton fabAdd, fabDespesa, fabReceita;
     private List<transacao> transacoes = new ArrayList<>();
+    private OkHttpClient _client = new OkHttpClient();
+    private PieChart pieChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_session);
 
@@ -125,29 +136,9 @@ public class session extends AppCompatActivity {
         });
 
         ///Grafico
-        PieChart pieChart = findViewById(R.id.pieChart);
-        ArrayList<PieEntry> balancos = new ArrayList<>();
-        balancos.add(new PieEntry(900, "Despesa"));
-        balancos.add(new PieEntry(500, "Receita"));
+        pieChart = findViewById(R.id.pieChart);
+        getBalance(2);
 
-        int red = ContextCompat.getColor(this, android.R.color.holo_red_dark);
-        int green = ContextCompat.getColor(this, android.R.color.holo_green_dark);
-
-        List<Integer> colors = new ArrayList<Integer>();
-        colors.add(red);
-        colors.add(green);
-
-        PieDataSet pieDataSet = new PieDataSet(balancos, "Balanços");
-        pieDataSet.setColors(colors);
-        pieDataSet.setValueTextColor(Color.BLACK);
-        pieDataSet.setValueTextSize(16f);
-
-        PieData pieData = new PieData(pieDataSet);
-
-        pieChart.setData(pieData);
-        pieChart.getDescription().setEnabled(false);
-        pieChart.setCenterText("Balanços");
-        pieChart.animate();
     }
 
     /// Metodo para gerenciar a navegação
@@ -184,28 +175,85 @@ public class session extends AppCompatActivity {
                 }
             }
 
-            calcularBalanco();
+//            calcularBalanco();
         }
     }
 
-    public void calcularBalanco() {
-        double receitaTotal = 0;
-        double despesaTotal = 0;
+    public void calcularBalanco(UserBalance userBalance) {
+        runOnUiThread(new Runnable() {
 
-        for (transacao transacao : transacoes) {
-            if (transacao.getTipo().equals("receita")) {
-                receitaTotal += transacao.getValor();
-            } else if (transacao.getTipo().equals("despesa")) {
-                despesaTotal += transacao.getValor();
+            @Override
+            public void run() {
+
+                TextView textBalanco = findViewById(R.id.textBalanco);
+                TextView textSalValue = findViewById(R.id.textSalValue);
+                TextView textDesValue = findViewById(R.id.textDesValue);
+
+                textBalanco.setText(String.format("Balanço: %.2f", userBalance.total_balance));
+                textSalValue.setText(String.format("R$ %.2f", userBalance.total_income));
+                textDesValue.setText(String.format("R$ %.2f", userBalance.total_outgoing));
+
             }
-        }
+        });
 
-        TextView textBalanco = findViewById(R.id.textBalanco);
-        TextView textSalValue = findViewById(R.id.textSalValue);
-        TextView textDesValue = findViewById(R.id.textDesValue);
+    }
 
-        textBalanco.setText(String.format("Balanço: %.2f", receitaTotal - despesaTotal));
-        textSalValue.setText(String.format("R$ %.2f", receitaTotal));
-        textDesValue.setText(String.format("R$ %.2f", despesaTotal));
+    public void getBalance(int id) {
+        String url = "http://ec2-3-14-146-243.us-east-2.compute.amazonaws.com:3003/users";
+        String path = String.format("%s/%s/show_balance", url, id);
+        Request getRequest = new Request.Builder()
+                .url(path)
+                .build();
+
+        _client.newCall(getRequest).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                call.cancel();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                UserBalance u = new Gson().fromJson(response.body().string(), UserBalance.class);
+                renderChart(u);
+                calcularBalanco(u);
+            }
+        });
+    }
+
+    private void renderChart(final UserBalance userBalance) {
+        final int red = ContextCompat.getColor(this, android.R.color.holo_red_dark);
+        final int green = ContextCompat.getColor(this, android.R.color.holo_green_dark);
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+
+                ArrayList<PieEntry> balancos = new ArrayList<>();
+
+                balancos.add(new PieEntry(userBalance.total_outgoing * -1, "Despesa"));
+                balancos.add(new PieEntry(userBalance.total_income, "Receita"));
+
+                List<Integer> colors = new ArrayList<Integer>();
+                colors.add(red);
+                colors.add(green);
+
+                PieDataSet pieDataSet = new PieDataSet(balancos, "Balanços");
+                pieDataSet.setColors(colors);
+                pieDataSet.setValueTextColor(Color.BLACK);
+                pieDataSet.setValueTextSize(16f);
+
+                PieData pieData = new PieData(pieDataSet);
+
+                pieChart.setData(pieData);
+                pieChart.getDescription().setEnabled(false);
+                pieChart.setCenterText("Balanços");
+                pieChart.animate();
+
+                pieChart.notifyDataSetChanged();
+                pieChart.invalidate();
+            }
+        });
+
     }
 }
