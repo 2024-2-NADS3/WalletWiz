@@ -30,24 +30,24 @@
             android:exported="false" />
         <activity
             android:name="br.fecap.pi.walletwiz.login"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="br.fecap.pi.walletwiz.extrato"
             android:exported="false" />
         <activity
             android:name="br.fecap.pi.walletwiz.receita"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name="br.fecap.pi.walletwiz.despesa"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name="br.fecap.pi.walletwiz.session"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity> <!-- Corrigido: intent-filter dentro da activity -->
         <activity
             android:name="br.fecap.pi.walletwiz.MainActivity"

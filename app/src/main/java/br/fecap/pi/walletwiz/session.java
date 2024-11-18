@@ -1,6 +1,7 @@
 package br.fecap.pi.walletwiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class session extends AppCompatActivity {
-
+    private SharedPreferences sharedPreferences;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private FloatingActionButton fabAdd, fabDespesa, fabReceita;
@@ -50,6 +51,15 @@ public class session extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+
+        // Se o usuário não estiver logado, redirecionar para o Login
+        if (!sharedPreferences.getBoolean("isLoggedIn", false)) {
+            startActivity(new Intent(this, login.class));
+            finish();
+            return;
+        }
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_session);
@@ -93,7 +103,9 @@ public class session extends AppCompatActivity {
             } else if (id == R.id.nav_academy) {
                 navigateToActivity(academy.class);
                 return true;
-
+            } else if (id == R.id.nav_logout) {
+                logout();
+                return true;
             }else {
                 return false;
             }
@@ -167,10 +179,8 @@ public class session extends AppCompatActivity {
 
     public void calcularBalanco(UserBalance userBalance) {
         runOnUiThread(new Runnable() {
-
             @Override
             public void run() {
-
                 TextView textBalanco = findViewById(R.id.textBalanco);
                 TextView textSalValue = findViewById(R.id.textSalValue);
                 TextView textDesValue = findViewById(R.id.textDesValue);
@@ -178,7 +188,6 @@ public class session extends AppCompatActivity {
                 textBalanco.setText(String.format("Balanço: %.2f", userBalance.total_balance));
                 textSalValue.setText(String.format("R$ %.2f", userBalance.total_income));
                 textDesValue.setText(String.format("R$ %.2f", userBalance.total_outgoing));
-
             }
         });
 
@@ -209,12 +218,10 @@ public class session extends AppCompatActivity {
     private void renderChart(final UserBalance userBalance) {
         final int red = ContextCompat.getColor(this, android.R.color.holo_red_dark);
         final int green = ContextCompat.getColor(this, android.R.color.holo_green_dark);
-        runOnUiThread(new Runnable() {
 
+        runOnUiThread(new Runnable() {
             @Override
             public void run() {
-
-
                 ArrayList<PieEntry> balancos = new ArrayList<>();
 
                 balancos.add(new PieEntry(userBalance.total_outgoing * -1, "Despesa"));
@@ -240,6 +247,17 @@ public class session extends AppCompatActivity {
                 pieChart.invalidate();
             }
         });
+    }
 
+    private void logout() {
+        // Limpar o SharedPreferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
+        // Redirecionar para a tela de login
+        Intent intent = new Intent(this, login.class);
+        startActivity(intent);
+        finish();
     }
 }

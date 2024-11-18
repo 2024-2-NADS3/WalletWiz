@@ -1,5 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/nav_home"
+        android:title="Página inicial" />
+    <item
         android:id="@+id/nav_acount"
         android:title="Seu perfil" />
     <item
@@ -11,8 +14,7 @@
     <item
         android:id="@+id/nav_extract"
         android:title="Extrato" />
-
     <item
-        android:id="@+id/nav_home"
-        android:title="Página inicial" />
+        android:id="@+id/nav_logout"
+        android:title="Sair" />
 </menu>

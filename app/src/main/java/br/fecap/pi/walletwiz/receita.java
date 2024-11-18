@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
@@ -229,6 +231,7 @@ public class receita extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
+//                        Toast.makeText(receita.this, "Receita Salva", Toast.LENGTH_SHORT).show();
                         resultIntent.putExtra("new", true);
                         setResult(RESULT_OK, resultIntent);
                         finish();
