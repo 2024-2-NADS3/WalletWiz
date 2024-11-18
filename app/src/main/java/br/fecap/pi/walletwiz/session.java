@@ -161,21 +161,7 @@ public class session extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == 1) { // Despesa
-                transacao novaDespesa = (transacao) data.getSerializableExtra("nova_transacao");
-                if (novaDespesa != null) {
-                    transacoes.add(novaDespesa);
-                    Log.d("TAG", "Despesa adicionada: " + novaDespesa);
-                }
-            } else if (requestCode == 2) { // Receita
-                transacao novaReceita = (transacao) data.getSerializableExtra("nova_transacao");
-                if (novaReceita != null) {
-                    transacoes.add(novaReceita);
-                    Log.d("TAG", "Receita adicionada: " + novaReceita);
-                }
-            }
-
-//            calcularBalanco();
+            getBalance(2);
         }
     }
 

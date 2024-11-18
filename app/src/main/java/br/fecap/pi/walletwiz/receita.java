@@ -17,11 +17,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import br.fecap.walletwiz.R;
+import com.google.gson.Gson;
 
+import br.fecap.walletwiz.R;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class receita extends AppCompatActivity {
     private session sessionInstance;
@@ -34,6 +46,7 @@ public class receita extends AppCompatActivity {
     private EditText editTextDescricao, editTextValor;
     private Button buttonSelectDate, buttonSalvar;
     private Spinner spinnerReceita;
+    private OkHttpClient _client = new OkHttpClient();
 
     private transacao transacaoParaEditar;
 
@@ -182,31 +195,47 @@ public class receita extends AppCompatActivity {
 
     private void adicionarReceita() {
         String descricao = editTextDescricao.getText().toString();
-        String valorString = editTextValor.getText().toString();
+        String valor = editTextValor.getText().toString();
         String data = buttonSelectDate.getText().toString();
-        String categoria = spinnerReceita.getSelectedItem().toString();
+//        String categoria = spinnerGastos.getSelectedItem().toString();
 
-        if (!descricao.isEmpty() && !valorString.isEmpty() && !data.isEmpty()) {
+        if (!descricao.isEmpty() && !valor.isEmpty() && !data.isEmpty()) {
             try {
-                double valor = Double.parseDouble(valorString);
-                transacao novaTransacao = new transacao("receita", valor, data, categoria);
+                final Intent resultIntent = new Intent();
 
-                Intent resultIntent = new Intent();
-                if (transacaoParaEditar != null) {
-                    // Atualizar a transação existente
-                    int position = transacoes.indexOf(transacaoParaEditar);
-                    transacoes.set(position, novaTransacao); // Atualiza a transação
-                    resultIntent.putExtra("position", position);
-                    resultIntent.putExtra("transacao", novaTransacao);
-                } else {
-                    transacoes.add(novaTransacao);
-                    resultIntent.putExtra("nova_transacao", novaTransacao);
-                }
+                Map<String, Object> objectBody = new HashMap<String, Object>();
+                Map<String, Object> transaction = new HashMap<String, Object>();
+                transaction.put("observacao", descricao);
+                transaction.put("valor", Float.parseFloat(valor));
+                transaction.put("data", data);
+                transaction.put("user_id", 2);
+                transaction.put("transaction_type_id", 2);
+                transaction.put("transaction_tag", "receita");
+                objectBody.put("transaction", transaction);
 
-                setResult(RESULT_OK, resultIntent);
-                finish();
+                RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(objectBody));
+
+                String url = "http://ec2-3-14-146-243.us-east-2.compute.amazonaws.com:3003/transactions";
+                Request request = new Request.Builder()
+                        .url(url)
+                        .post(body)
+                        .build();
+
+                _client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        call.cancel();
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        resultIntent.putExtra("new", true);
+                        setResult(RESULT_OK, resultIntent);
+                        finish();
+                    }
+                });
             } catch (NumberFormatException e) {
-                Log.d("TAG", "Valor inválido: " + valorString);
+                Log.d("TAG", "Valor inválido: " + valor);
             }
         } else {
             Log.d("TAG", "Por favor, preencha todos os campos");
