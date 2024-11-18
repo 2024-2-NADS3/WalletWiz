@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "users/:id/show_balance", controller: "users", action: :show_balance
   post "users/login", controller: "users", action: :login
+  get "users/:id/transactions", controller: "users", action: :get_transactions
 
   resources :transactions
   resources :transaction_types

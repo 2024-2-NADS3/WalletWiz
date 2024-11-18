@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show update destroy show_balance ]
+  before_action :set_user, only: %i[ show update destroy show_balance get_transactions ]
 
   # GET /users
   def index
@@ -53,6 +53,14 @@ class UsersController < ApplicationController
     @user = User.find_by(login_params)
     if @user
       render json: @user
+    else
+      render status: :not_found
+    end
+  end
+
+  def get_transactions
+    if @user
+      render json: @user.transactions.includes(:transaction_type).order(data: :desc).as_json(include: :transaction_type)
     else
       render status: :not_found
     end
