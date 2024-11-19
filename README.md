@@ -27,10 +27,22 @@ WalletWiz é um aplicativo Android de educação financeira com um tema mágico,
 |-->documentos<br>
   &emsp;|-->antigos<br>
   &emsp;|-->Informações para Loja<br>
+  &emsp;&emsp;|-->Informações para loja.docx<br>
+  &emsp;&emsp;|-->Política de Privacidade.docx<br>
+  &emsp;&emsp;|-->Política de Privacidade.pdf<br>
   &emsp;|-->Programação Mobile<br>
+  &emsp;&emsp;|-->app-release.aab<br>
   &emsp;|-->Sistemas Operacionais e Arquitetura de Cloud Native<br>
+  &emsp;&emsp;|-->Definições de Cloud Native.docx<br>
+  &emsp;&emsp;|-->ScriptDB.txt<br>
   &emsp;|-->Testes e Qualidade de Software<br>
+  &emsp;&emsp;|-->WalletWiz - Documentação Software QA.docx<br>
+  &emsp;&emsp;|-->WalletWiz - Documentação Software.docx<br>
   &emsp;|-->User Experience<br>
+  &emsp;&emsp;|-->AnáliseHeurísticaUsabilidade.docx<br>
+  &emsp;&emsp;|-->Persona WalletWiz.png<br>
+  &emsp;&emsp;|-->Storyboard.jpeg<br>
+  &emsp;&emsp;|-->Wireframe.pdf<br>
 |-->executáveis<br>
   &emsp;|-->android<br>
 |-->imagens<br>
