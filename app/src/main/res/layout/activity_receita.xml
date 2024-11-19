@@ -41,60 +41,6 @@
                     android:src="@drawable/burger_menu" />
             </androidx.appcompat.widget.Toolbar>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/purpleww"
-                android:contentDescription="@string/add"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.983"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.976"
-                app:srcCompat="@drawable/baseline_add_circle_outline_24"
-                app:tint="@color/goldww" />
-
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_expense"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/white"
-                android:contentDescription="@string/launch_expense"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/fab_add"
-                app:layout_constraintEnd_toStartOf="@+id/fab_add"
-                app:layout_constraintHorizontal_bias="0.823"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.978"
-                app:srcCompat="@drawable/baseline_money_off_24"
-                app:tint="@color/goldww" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_income"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/white"
-                android:contentDescription="@string/launch_income"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/fab_add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.895"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.977"
-                app:srcCompat="@drawable/baseline_attach_money_24"
-                app:tint="@color/goldww" />
-
             <Button
                 android:id="@+id/buttonSalvarReceita"
                 android:layout_width="99dp"
@@ -207,7 +153,7 @@
                 app:layout_constraintVertical_bias="0.31" />
 
             <EditText
-                android:id="@+id/editTextObs"
+                android:id="@+id/editTextNome"
                 android:layout_width="373dp"
                 android:layout_height="38dp"
                 android:background="@drawable/radius"

@@ -3,6 +3,7 @@ package br.fecap.pi.walletwiz;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,9 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
+
+import br.fecap.pi.walletwiz.model.TransactionType;
 import br.fecap.walletwiz.R;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -38,52 +42,36 @@ import java.util.List;
 import java.util.Map;
 
 public class receita extends AppCompatActivity {
-    private session sessionInstance;
+    private SharedPreferences sharedPreferences;
+    private int userId;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    private FloatingActionButton fabAdd, fabDespesa, fabReceita;
-    private boolean isFabOpen = false;
-    private List<transacao> transacoes = new ArrayList<>();
 
-    private EditText editTextDescricao, editTextValor;
+    private EditText editTextDescricao, editTextValor, editTextNome;
     private Button buttonSelectDate, buttonSalvar;
     private Spinner spinnerReceita;
     private OkHttpClient _client = new OkHttpClient();
-
-    private transacao transacaoParaEditar;
 
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE);
+        userId = sharedPreferences.getInt("userId", 0);
+
         setContentView(R.layout.activity_receita);
-
-        transacoes = (ArrayList<transacao>) getIntent().getSerializableExtra("transacoes");
-        if (transacoes == null) {
-            transacoes = new ArrayList<>();
-        }
-
-        // Receber a transação para edição
-        transacaoParaEditar = (transacao) getIntent().getSerializableExtra("transacao");
 
         initViews();
         setupSpinner();
         setupDrawer();
-        setupFloatingActionButton();
         setupDatePicker();
         setupSaveButton();
-
-
-        if (transacaoParaEditar != null) {
-            preencherCamposComTransacao(transacaoParaEditar);
-        }
-
-        FloatingActionButton fabBack = findViewById(R.id.back);
-        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
     private void initViews() {
-        editTextDescricao = findViewById(R.id.editTextObs);
+        editTextNome = findViewById(R.id.editTextNome);
+        editTextDescricao = findViewById(R.id.editTextObservacao);
         editTextValor = findViewById(R.id.editTextReceita);
         buttonSelectDate = findViewById(R.id.btn_select_date);
         buttonSalvar = findViewById(R.id.buttonSalvarReceita);
@@ -92,13 +80,43 @@ public class receita extends AppCompatActivity {
 
 
     private void setupSpinner() {
-        ArrayList<String> tiposDeReceitas = new ArrayList<>();
-        tiposDeReceitas.add("Salário");
-        tiposDeReceitas.add("Renda extra");
+        Request request = new Request.Builder()
+                .url("http://ec2-3-14-146-243.us-east-2.compute.amazonaws.com:3003/transaction_types")
+                .build();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, tiposDeReceitas);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerReceita.setAdapter(adapter);
+        _client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(() -> Toast.makeText(receita.this, "Erro ao carregar dados", Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    try {
+                        String responseData = response.body().string();
+                        JSONArray jsonArray = new JSONArray(responseData);
+
+                        ArrayList<TransactionType> tiposDeReceita = new ArrayList<TransactionType>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            TransactionType tt = new TransactionType(jsonArray.getJSONObject(i));
+                            tiposDeReceita.add(tt);
+                        }
+
+                        runOnUiThread(() -> {
+                            ArrayAdapter<TransactionType> adapter = new ArrayAdapter<>(receita.this, android.R.layout.simple_spinner_item, tiposDeReceita);
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            spinnerReceita.setAdapter(adapter);
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        runOnUiThread(() -> Toast.makeText(receita.this, "Erro ao processar dados", Toast.LENGTH_SHORT).show());
+                    }
+                } else {
+                    runOnUiThread(() -> Toast.makeText(receita.this, "Erro na resposta da API", Toast.LENGTH_SHORT).show());
+                }
+            }
+        });
     }
 
     private void setupDrawer() {
@@ -143,38 +161,6 @@ public class receita extends AppCompatActivity {
         });
     }
 
-
-
-    private void setupFloatingActionButton() {
-        fabAdd = findViewById(R.id.fab_add);
-        fabDespesa = findViewById(R.id.fab_expense);
-        fabReceita = findViewById(R.id.fab_income);
-
-        fabDespesa.setVisibility(View.GONE);
-        fabReceita.setVisibility(View.GONE);
-
-        fabAdd.setOnClickListener(v -> {
-            if (isFabOpen) {
-                closeFABMenu();
-            } else {
-                openFABMenu();
-            }
-        });
-
-        fabDespesa.setOnClickListener(v -> {
-            Log.d("TAG", "Despesa button clicked");
-            Intent intent = new Intent(receita.this, despesa.class);
-            intent.putExtra("transacoes", (ArrayList<transacao>) transacoes);
-            startActivityForResult(intent, 1);
-        });
-
-        fabReceita.setOnClickListener(v -> {
-            Log.d("TAG", "Receita button clicked");
-            Intent intent = new Intent(receita.this, receita.class);
-            startActivityForResult(intent, 2);
-        });
-    }
-
     private void setupDatePicker() {
         buttonSelectDate.setOnClickListener(v -> {
             final Calendar calendar = Calendar.getInstance();
@@ -196,22 +182,24 @@ public class receita extends AppCompatActivity {
     }
 
     private void adicionarReceita() {
+        String nome = editTextNome.getText().toString();
         String descricao = editTextDescricao.getText().toString();
         String valor = editTextValor.getText().toString();
         String data = buttonSelectDate.getText().toString();
-//        String categoria = spinnerGastos.getSelectedItem().toString();
+        TransactionType categoria = (TransactionType) spinnerReceita.getSelectedItem();
 
-        if (!descricao.isEmpty() && !valor.isEmpty() && !data.isEmpty()) {
+        if (!descricao.isEmpty() && !valor.isEmpty() && !data.isEmpty() && !nome.isEmpty()) {
             try {
                 final Intent resultIntent = new Intent();
 
                 Map<String, Object> objectBody = new HashMap<String, Object>();
                 Map<String, Object> transaction = new HashMap<String, Object>();
+                transaction.put("nome", nome);
                 transaction.put("observacao", descricao);
                 transaction.put("valor", Float.parseFloat(valor));
                 transaction.put("data", data);
-                transaction.put("user_id", 2);
-                transaction.put("transaction_type_id", 2);
+                transaction.put("user_id", userId);
+                transaction.put("transaction_type_id", categoria.id);
                 transaction.put("transaction_tag", "receita");
                 objectBody.put("transaction", transaction);
 
@@ -242,38 +230,6 @@ public class receita extends AppCompatActivity {
             }
         } else {
             Log.d("TAG", "Por favor, preencha todos os campos");
-        }
-    }
-
-    private void preencherCamposComTransacao(transacao transacao) {
-        editTextDescricao.setText(transacao.getTipo());
-        editTextValor.setText(String.valueOf(transacao.getValor()));
-        buttonSelectDate.setText(transacao.getData());
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) spinnerReceita.getAdapter();
-        int spinnerPosition = adapter.getPosition(transacao.getCategoria());
-        spinnerReceita.setSelection(spinnerPosition);
-    }
-
-    private void openFABMenu() {
-        isFabOpen = true;
-        fabDespesa.setVisibility(View.VISIBLE);
-        fabReceita.setVisibility(View.VISIBLE);
-        fabDespesa.animate().translationY(-100).setDuration(300);
-        fabReceita.animate().translationY(-180).setDuration(300);
-    }
-
-    private void closeFABMenu() {
-        isFabOpen = false;
-        fabDespesa.animate().translationY(0).setDuration(300).withEndAction(() -> fabDespesa.setVisibility(View.GONE));
-        fabReceita.animate().translationY(0).setDuration(300).withEndAction(() -> fabReceita.setVisibility(View.GONE));
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
     }
 }

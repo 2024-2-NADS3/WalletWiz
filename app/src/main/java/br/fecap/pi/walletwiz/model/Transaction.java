@@ -26,14 +26,9 @@ public class Transaction {
             ZonedDateTime zonedDateTime = ZonedDateTime.parse(o.getString("data"));
             data = zonedDateTime.toLocalDateTime();
         }
-
         observacao = o.getString("observacao");
 
-        JSONObject ott = o.getJSONObject("transaction_type");
-        TransactionType tt = new TransactionType();
-        tt.id = ott.getInt("id");
-        tt.nome = ott.getString("nome");
-        transaction_type = tt;
+        transaction_type = new TransactionType(o.getJSONObject("transaction_type"));
     }
 
     public String toJson() {

@@ -41,7 +41,7 @@ public class TransacaoAdapter extends RecyclerView.Adapter<TransacaoAdapter.View
 
         final boolean isIncome = transaction.getTipo() == ENUM_TYPE.INCOME;
 
-        holder.textViewDescricao.setText(transaction.data + ": " + (isIncome ? "Despesa" : "Receita") + " - R$" + transaction.valor + " " + transaction.transaction_type.nome);
+        holder.textViewDescricao.setText(transaction.data + ": " + (isIncome ? "Receita" : "Despesa") + " - R$" + transaction.valor + " " + transaction.transaction_type.nome);
 
         // Define a cor do texto com base no tipo de transação
         if (isIncome) {
