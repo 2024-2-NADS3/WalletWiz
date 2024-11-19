@@ -42,15 +42,12 @@ public class extrato extends AppCompatActivity {
     private int userId;
     private OkHttpClient _client = new OkHttpClient();
     private List<Transaction> transactions = new ArrayList<Transaction>();
-
-
     private RecyclerView recyclerViewExtrato;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private TransacaoAdapter adapter;
-    private List<transacao> transacoes = new ArrayList<>();
+
     private static final int ADD_TRANSACTION_REQUEST = 1;
-    private static final int EDIT_TRANSACTION_REQUEST = 2;
 
     private FloatingActionButton fabAdd, fabDespesa, fabReceita;
     private boolean isFabOpen = false;
@@ -99,7 +96,6 @@ public class extrato extends AppCompatActivity {
         // Configuração dos botões de despesa e receita
         fabDespesa.setOnClickListener(v -> {
             Intent intent = new Intent(extrato.this, despesa.class);
-            intent.putExtra("transacoes", (ArrayList<transacao>) transacoes);
             startActivityForResult(intent, ADD_TRANSACTION_REQUEST);
         });
 
@@ -177,28 +173,9 @@ public class extrato extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == ADD_TRANSACTION_REQUEST) {
-                transacao novaTransacao = (transacao) data.getSerializableExtra("nova_transacao");
-                if (novaTransacao != null) {
-                    transacoes.add(novaTransacao);
-                    adapter.notifyItemInserted(transacoes.size() - 1);
-                }
-            } else if (requestCode == EDIT_TRANSACTION_REQUEST) {
-                // Atualizar a transação editada
-                transacao transacaoEditada = (transacao) data.getSerializableExtra("transacao");
-                int position = data.getIntExtra("position", -1);
-                if (transacaoEditada != null && position != -1) {
-                    transacoes.set(position, transacaoEditada);
-                    adapter.notifyItemChanged(position);
-                    Toast.makeText(this, "Transação editada com sucesso", Toast.LENGTH_SHORT).show();
-                }
-            }
+            transactions = new ArrayList<Transaction>();
+            getTransactions(userId);
         }
-    }
-
-    public void atualizarTransacao(int position) {
-        transacoes.remove(position);
-        adapter.notifyItemRemoved(position);
     }
 
     private void getTransactions(int id) {
@@ -218,14 +195,15 @@ public class extrato extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     JSONArray arr = new JSONArray(response.body().string());
-
                     for (int i = 0; i < arr.length(); i++) {
-                        JSONObject o = arr.getJSONObject(i);
-                        Transaction t = new Transaction();
-                        t.build(o);
+                        Transaction t = new Transaction(arr.getJSONObject(i));
                         transactions.add(t);
                     }
-                    runOnUiThread(() -> adapter.notifyDataSetChanged());
+                    runOnUiThread(() -> {
+                        adapter = new TransacaoAdapter(transactions, extrato.this);
+                        recyclerViewExtrato.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                    });
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }

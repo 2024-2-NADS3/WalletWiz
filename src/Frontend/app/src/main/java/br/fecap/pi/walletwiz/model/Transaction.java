@@ -17,7 +17,12 @@ public class Transaction {
     public String nome;
     public TransactionType transaction_type;
 
-    public void build(JSONObject o) throws JSONException {
+    public Transaction() {}
+    public Transaction(JSONObject o) throws JSONException {
+        this.build(o);
+    }
+
+    private void build(JSONObject o) throws JSONException {
         id = o.getInt("id");
         valor = o.getDouble("valor");
         nome = o.getString("nome");
