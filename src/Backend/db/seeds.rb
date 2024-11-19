@@ -52,6 +52,7 @@
 
 [
     {
+        "nome": "teste",
         "valor": 3000,
         "data": "24/11/2004",
         "observacao": "teste",
@@ -59,6 +60,7 @@
         "user_id": 1
     },
     {
+        "nome": "teste2",
         "valor": 5000,
         "data": "11/10/2023",
         "observacao": "teste",
@@ -66,6 +68,7 @@
         "user_id": 1
     },
     {
+        "nome": "teste3",
         "valor": -3000,
         "data": "11/11/2011",
         "observacao": "teste",
