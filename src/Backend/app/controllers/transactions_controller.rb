@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
 
     render json: @transactions
   end
- 
+
   # GET /transactions/1
   def show
     render json: @transaction
@@ -50,6 +50,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:valor, :data, :observacao, :transaction_type_id, :user_id, :transaction_tag)
+      params.require(:transaction).permit(:nome, :valor, :data, :observacao, :transaction_type_id, :user_id, :transaction_tag)
     end
 end
