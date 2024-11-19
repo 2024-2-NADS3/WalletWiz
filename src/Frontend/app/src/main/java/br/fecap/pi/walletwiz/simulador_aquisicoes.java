@@ -95,14 +95,8 @@ public class simulador_aquisicoes extends AppCompatActivity implements Simulacao
                 startActivity(new Intent(simulador_aquisicoes.this, session.class));
                 finish();
                 return true;
-            } else if (item.getItemId() == R.id.nav_acount) {
-                startActivity(new Intent(simulador_aquisicoes.this, perfil.class));
-                return true;
             } else if (item.getItemId() == R.id.nav_academy) {
                 startActivity(new Intent(simulador_aquisicoes.this, academy.class));
-                return true;
-            } else if (item.getItemId() == R.id.nav_simulador_aquisicoes) {
-                startActivity(new Intent(simulador_aquisicoes.this, simulador_aquisicoes.class));
                 return true;
             }
             else if (item.getItemId() == R.id.nav_extract) {

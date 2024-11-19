@@ -143,14 +143,8 @@ public class receita extends AppCompatActivity {
                 startActivity(new Intent(receita.this, session.class));
                 finish();
                 return true;
-            } else if (item.getItemId() == R.id.nav_acount) {
-                startActivity(new Intent(receita.this, perfil.class));
-                return true;
             } else if (item.getItemId() == R.id.nav_academy) {
                 startActivity(new Intent(receita.this, academy.class));
-                return true;
-            } else if (item.getItemId() == R.id.nav_simulador_aquisicoes) {
-                startActivity(new Intent(receita.this, simulador_aquisicoes.class));
                 return true;
             }else if (item.getItemId() == R.id.nav_extract) {
                 startActivity(new Intent(receita.this, extrato.class));

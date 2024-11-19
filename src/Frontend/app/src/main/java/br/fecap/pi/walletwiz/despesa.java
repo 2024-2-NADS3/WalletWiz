@@ -145,16 +145,10 @@ public class despesa extends AppCompatActivity {
                 startActivity(new Intent(despesa.this, session.class));
                 finish();
                 return true;
-            } else if (item.getItemId() == R.id.nav_acount) {
-                startActivity(new Intent(despesa.this, perfil.class));
-                return true;
             } else if (item.getItemId() == R.id.nav_academy) {
                 startActivity(new Intent(despesa.this, academy.class));
                 return true;
-            } else if (item.getItemId() == R.id.nav_simulador_aquisicoes) {
-                startActivity(new Intent(despesa.this, simulador_aquisicoes.class));
-                return true;
-            }else if (item.getItemId() == R.id.nav_extract) {
+            } else if (item.getItemId() == R.id.nav_extract) {
                 startActivity(new Intent(despesa.this, extrato.class));
                 return true;
             }

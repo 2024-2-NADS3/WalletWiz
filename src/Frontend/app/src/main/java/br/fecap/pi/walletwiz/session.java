@@ -99,10 +99,6 @@ public class session extends AppCompatActivity {
                 finish();
                 return true;
 
-            } else if (id == R.id.nav_simulador_aquisicoes) {
-                navigateToActivity(simulador_aquisicoes.class);
-                return true;
-
             } else if (id == R.id.nav_academy) {
                 navigateToActivity(academy.class);
                 return true;
