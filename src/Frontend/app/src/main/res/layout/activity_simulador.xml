@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.fecap.pi.walletwiz.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="br.fecap.pi.walletwiz.simulador">
+
+
+            <TextView
+                android:id="@+id/textSimu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simulador de aquisições"
+                android:textColor="@color/purpleww"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.019" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="343dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="272dp"
+                android:text="Resultado:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.161"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eT_Svalorg"
+                app:layout_constraintVertical_bias="0.14" />
+
+            <Button
+                android:id="@+id/btn_select_final"
+                android:layout_width="186dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="132dp"
+                android:background="@drawable/border_button_gold"
+                android:backgroundTint="@null"
+                android:text="Selecionar Data"
+                android:textColor="@color/goldww"
+                app:layout_constraintBottom_toTopOf="@+id/button_simular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eT_Svalorg"
+                app:layout_constraintVertical_bias="0.461" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data de fim:"
+                app:layout_constraintBottom_toTopOf="@+id/btn_select_final"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_select_inicio"
+                app:layout_constraintVertical_bias="0.79" />
+
+            <Button
+                android:id="@+id/btn_select_inicio"
+                android:layout_width="188dp"
+                android:layout_height="40dp"
+                android:background="@drawable/border_button_gold"
+                android:backgroundTint="@null"
+                android:text="Selecionar Data"
+                android:textColor="@color/goldww"
+                app:layout_constraintBottom_toTopOf="@+id/button_simular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eT_Svalorg"
+                app:layout_constraintVertical_bias="0.303" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data de inicio:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.034"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSimu"
+                app:layout_constraintVertical_bias="0.475" />
+
+            <EditText
+                android:id="@+id/eT_Svalorg"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/radius"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColorHint="@color/purpleww"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSimu"
+                app:layout_constraintVertical_bias="0.902" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valor guardado"
+                app:layout_constraintBottom_toTopOf="@+id/eT_Svalorg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.037"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eT_Svalori"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <EditText
+                android:id="@+id/eT_Svalori"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:background="@drawable/radius"
+                android:inputType="number"
+                android:padding="12dp"
+                android:textColorHint="@color/purpleww"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/eT_Svalorg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSimu"
+                app:layout_constraintVertical_bias="0.852" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Valor da aquisição"
+                app:layout_constraintBottom_toTopOf="@+id/eT_Svalori"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.037"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSimu"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <EditText
+                android:id="@+id/eT_Snome"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
+                android:background="@drawable/radius"
+                android:padding="12dp"
+                android:textColorHint="@color/purpleww"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/eT_Svalori"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSimu"
+                app:layout_constraintVertical_bias="0.789" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Nome"
+                app:layout_constraintBottom_toTopOf="@+id/eT_Snome"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.029"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textSimu"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/button_simular"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="180dp"
+                android:background="@drawable/btnshape"
+                android:text="Simular"
+                android:textColor="@color/goldww"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eT_Svalorg"
+                app:layout_constraintVertical_bias="0.288" />
+
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/btnshape"
+                android:text="Salvar"
+                android:textColor="@color/goldww"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.947" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                android:stateListAnimator="@null"
+                app:elevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.954"
+                app:srcCompat="@drawable/back" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="403dp"
+                android:layout_height="40dp"
+                android:text="Nesse módulo, você pode calcular a quantidade financeira que você deve alocar por mês para atingir um objetivo específico"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.106" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

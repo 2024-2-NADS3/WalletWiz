@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071842251019",
+    "project_id": "walletwiz-17ede",
+    "storage_bucket": "walletwiz-17ede.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071842251019:android:c013a3dbae567d396d920e",
+        "android_client_info": {
+          "package_name": "com.walletwiz"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAztxEYMIrIIw4k1H5HJj3ayiaYYk0Rtaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textNomeAquisicao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome da Aquisição"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textValorTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor Total: R$ 0.00"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textValorGuardado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor Guardado: R$ 0.00"
+        android:textSize="14sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBarSimulacao"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:max="100"
+        android:progress="0" />
+
+    <TextView
+        android:id="@+id/textPorcentagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Progresso: 50%"
+        android:textSize="14sp" />
+
+</LinearLayout>
