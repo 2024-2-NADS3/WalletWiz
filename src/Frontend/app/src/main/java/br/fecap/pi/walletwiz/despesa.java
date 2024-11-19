@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.content.SharedPreferences;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -70,6 +71,9 @@ public class despesa extends AppCompatActivity {
         setupDrawer();
         setupDatePicker();
         setupSaveButton();
+
+        FloatingActionButton fabBack = findViewById(R.id.back);
+        fabBack.setOnClickListener(v -> onBackPressed());
     }
 
     private void initViews() {

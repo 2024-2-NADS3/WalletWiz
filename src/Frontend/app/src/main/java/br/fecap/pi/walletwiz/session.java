@@ -96,11 +96,11 @@ public class session extends AppCompatActivity {
                 Intent intentExtract = new Intent(session.this, extrato.class);
                 intentExtract.putExtra("transacoes", (ArrayList<transacao>) transacoes);
                 startActivity(intentExtract);
-                finish();
                 return true;
 
             } else if (id == R.id.nav_academy) {
-                navigateToActivity(academy.class);
+                Intent intentExtract = new Intent(session.this, academy.class);
+                startActivity(intentExtract);
                 return true;
             } else if (id == R.id.nav_logout) {
                 logout();

@@ -15,6 +15,7 @@ import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -197,7 +198,6 @@ public class academy extends AppCompatActivity {
             // Verificando o item selecionado e iniciando a activity correspondente
             if (item.getItemId() == R.id.nav_home) {
                 startActivity(new Intent(academy.this, session.class));
-                finish();
                 return true;
             }  else if (item.getItemId() == R.id.nav_academy) {
                 startActivity(new Intent(academy.this, academy.class));
@@ -223,4 +223,6 @@ public class academy extends AppCompatActivity {
             icon.setText("+");
         }
     }
+
+
 }

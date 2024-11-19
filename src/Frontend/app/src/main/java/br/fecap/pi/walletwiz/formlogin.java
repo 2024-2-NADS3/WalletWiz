@@ -67,7 +67,7 @@ public class formlogin extends AppCompatActivity {
         });
 
         loginLink.setOnClickListener(v -> {
-            Intent intent = new Intent(this, formlogin.class);
+            Intent intent = new Intent(this, login.class);
             startActivity(intent);
         });
     }
