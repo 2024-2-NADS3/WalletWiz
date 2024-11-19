@@ -1,0 +1,45 @@
+-- Habilitar extensões necessárias
+CREATE EXTENSION IF NOT EXISTS plpgsql;
+
+-- Tabela: users
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR,
+    sobrenome VARCHAR,
+    cpf VARCHAR,
+    endereco VARCHAR,
+    email VARCHAR,
+    senha VARCHAR,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+-- Tabela: transaction_types
+CREATE TABLE transaction_types (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR,
+    user_id BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    CONSTRAINT fk_transaction_types_users FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+-- Tabela: transactions
+CREATE TABLE transactions (
+    id SERIAL PRIMARY KEY,
+    valor FLOAT,
+    data TIMESTAMP,
+    observacao VARCHAR,
+    transaction_type_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    nome VARCHAR,
+    CONSTRAINT fk_transactions_transaction_types FOREIGN KEY (transaction_type_id) REFERENCES transaction_types (id),
+    CONSTRAINT fk_transactions_users FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+-- Índices
+CREATE INDEX index_transaction_types_on_user_id ON transaction_types (user_id);
+CREATE INDEX index_transactions_on_transaction_type_id ON transactions (transaction_type_id);
+CREATE INDEX index_transactions_on_user_id ON transactions (user_id);
