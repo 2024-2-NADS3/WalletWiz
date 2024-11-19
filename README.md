@@ -26,11 +26,13 @@ WalletWiz é um aplicativo Android de educação financeira com um tema mágico,
 |<br>
 |-->documentos<br>
   &emsp;|-->antigos<br>
-  &emsp;|Documentação.docx<br>
+  &emsp;|-->Informações para Loja<br>
+  &emsp;|-->Programação Mobile<br>
+  &emsp;|-->Sistemas Operacionais e Arquitetura de Cloud Native<br>
+  &emsp;|-->Testes e Qualidade de Software<br>
+  &emsp;|-->User Experience<br>
 |-->executáveis<br>
-  &emsp;|-->windows<br>
   &emsp;|-->android<br>
-  &emsp;|-->HTML<br>
 |-->imagens<br>
 |-->src<br>
   &emsp;|-->Backend<br>
@@ -38,16 +40,18 @@ WalletWiz é um aplicativo Android de educação financeira com um tema mágico,
 |readme.md<br>
 
 ## 📂 Documentos:
-- <b><a href="https://drive.google.com/file/d/1wE7gPJE3Si1lcCfxBAxdq22NMJagdNDf/view?usp=drive_link">Storyboard</a></b>
-- <b><a href="https://drive.google.com/file/d/1Ggw1mmZ_f3MMnjQNwySekwBdgltO4eyp/view?usp=drive_link">Mapa de Jornada</a></b>
-- <b><a href="https://drive.google.com/file/d/1QpBWIkxgDVYO5p99YyUCAttJAVzC_uM5/view?usp=drive_link">Personas</a></b>
-- <b><a href="https://drive.google.com/file/d/11vPTdsCav9ESnrwZmb4z_V15nz7aTfYo/view?usp=drive_link">User Storie</a></b>
+- <b><a href="https://github.com/2024-2-NADS3/WalletWiz/tree/main/documentos/User%20Experience">User Experience</a></b>
+- <b><a href="https://github.com/2024-2-NADS3/WalletWiz/tree/main/documentos/Testes%20e%20Qualidade%20de%20Software%20(DevOps)">Testes e Qualidade de Software</a></b>
+- <b><a href="https://github.com/2024-2-NADS3/WalletWiz/tree/main/documentos/Programa%C3%A7%C3%A3o%20Mobile">Programação Mobile</a></b>
+- <b><a href="https://github.com/2024-2-NADS3/WalletWiz/tree/main/documentos/Sistemas%20Operacionais%20e%20Arquitetura%20de%20Cloud%20Native">Sistemas Operacionais e Arquitetura de Cloud Native</a></b>
+- <b><a href="https://github.com/2024-2-NADS3/WalletWiz/tree/main/documentos/Informa%C3%A7%C3%B5es%20para%20Loja">Informações loja</a></b>
 
 ## 💻 Configuração para Desenvolvimento:
 
 Para abrir este projeto você necessita das seguintes ferramentas:
 
 * <a href="https://developer.android.com/studio?hl=pt-br"> Android Studio
+* <a href="https://www.ruby-lang.org/pt/"> Ruby on Rails
 
 ## 📋 Licença/License
 
